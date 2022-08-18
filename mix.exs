@@ -2,15 +2,16 @@ defmodule CliSpinners.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :cli_spinners,
-     version: "0.1.0",
-     elixir: "~> 1.4",
-     build_embedded: Mix.env == :prod,
-     start_permanent: Mix.env == :prod,
-     deps: deps(),
-     description: description(),
-     package: package(),
-   ]
+    [
+      app: :cli_spinners,
+      version: "0.1.0",
+      elixir: "~> 1.4",
+      build_embedded: Mix.env() == :prod,
+      start_permanent: Mix.env() == :prod,
+      deps: deps(),
+      description: description(),
+      package: package()
+    ]
   end
 
   def application do
@@ -19,7 +20,7 @@ defmodule CliSpinners.Mixfile do
 
   defp deps do
     [
-      {:ex_doc, github: "elixir-lang/ex_doc", override: true, only: :dev}
+      {:ex_doc, "~> 0.28", only: :dev, runtime: false}
     ]
   end
 
@@ -33,12 +34,14 @@ defmodule CliSpinners.Mixfile do
 
   defp package do
     [
-     files: ["lib", "mix.exs", "README.md"],
-     maintainers: ["blackode"],
-     licenses: ["MIT"],
-     links: %{"GitHub" => "https://github.com/blackode/cli_spinners",
-              "Docs" => "http://hexdocs.pm/cli_spinners/",
-              "Creator" => "http://www.blackode.in"}
-     ]
+      files: ["lib", "mix.exs", "README.md"],
+      maintainers: ["blackode"],
+      licenses: ["MIT"],
+      links: %{
+        "GitHub" => "https://github.com/blackode/cli_spinners",
+        "Docs" => "http://hexdocs.pm/cli_spinners/",
+        "Creator" => "http://www.blackode.in"
+      }
+    ]
   end
 end

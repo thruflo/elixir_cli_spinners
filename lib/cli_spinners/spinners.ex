@@ -1,5 +1,4 @@
 defmodule CliSpinners.Spinners do
-
   def dots do
     [
       "⠋",
@@ -315,7 +314,6 @@ defmodule CliSpinners.Spinners do
       "...",
       "   "
     ]
-
   end
 
   def simple_dots_scrolling do
@@ -415,7 +413,6 @@ defmodule CliSpinners.Spinners do
       "*",
       " "
     ]
-
   end
 
   def balloon2 do
@@ -428,7 +425,6 @@ defmodule CliSpinners.Spinners do
       "o",
       "."
     ]
-
   end
 
   def noise do
@@ -437,7 +433,6 @@ defmodule CliSpinners.Spinners do
       "▒",
       "░"
     ]
-
   end
 
   def bounce do
@@ -447,7 +442,6 @@ defmodule CliSpinners.Spinners do
       "⠄",
       "⠂"
     ]
-
   end
 
   def box_bounce do
@@ -457,7 +451,6 @@ defmodule CliSpinners.Spinners do
       "▝",
       "▗"
     ]
-
   end
 
   def box_bounce2 do
@@ -467,7 +460,6 @@ defmodule CliSpinners.Spinners do
       "▐",
       "▄"
     ]
-
   end
 
   def triangle do
@@ -477,7 +469,6 @@ defmodule CliSpinners.Spinners do
       "◤",
       "◥"
     ]
-
   end
 
   def arc do
@@ -489,7 +480,6 @@ defmodule CliSpinners.Spinners do
       "◡",
       "◟"
     ]
-
   end
 
   def circle do
@@ -498,7 +488,6 @@ defmodule CliSpinners.Spinners do
       "⊙",
       "◠"
     ]
-
   end
 
   def square_corners do
@@ -508,7 +497,6 @@ defmodule CliSpinners.Spinners do
       "◲",
       "◱"
     ]
-
   end
 
   def circle_quarters do
@@ -840,5 +828,4 @@ defmodule CliSpinners.Spinners do
       "b"
     ]
   end
-
 end

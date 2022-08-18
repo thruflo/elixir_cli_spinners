@@ -1,9 +1,9 @@
 defmodule CliSpinners.Animation do
   use GenServer
 
-  #--------------#
-  #| Client API |#
-  #--------------#
+  # --------------#
+  # | Client API |#
+  # --------------#
 
   def begin_animation(config) do
     GenServer.start(__MODULE__, {config, 0}, name: :animation)
@@ -17,9 +17,9 @@ defmodule CliSpinners.Animation do
     end
   end
 
-  #-----------------#
-  #| GenServer API |#
-  #-----------------#
+  # -----------------#
+  # | GenServer API |#
+  # -----------------#
 
   def init(state) do
     {:ok, tick(state)}

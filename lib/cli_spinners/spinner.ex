@@ -9,12 +9,17 @@ defmodule CliSpinners.Spinner do
   alias CliSpinners.Utils
 
   @default_format [
-    frames: :line,         # This theme is set when no theme is set
-    spinner_color: [],     # The color code of the spinner
-    text: "Loading…",      # The prefix text of the spinner
-    done: "Loaded.",       # This text prints after ending the apinning
-    interval: 100,         # This is the default time interval used to render
-                           # The frame sequence
+    # This theme is set when no theme is set
+    frames: :line,
+    # The color code of the spinner
+    spinner_color: [],
+    # The prefix text of the spinner
+    text: "Loading…",
+    # This text prints after ending the apinning
+    done: "Loaded.",
+    # This is the default time interval used to render
+    interval: 100
+    # The frame sequence
   ]
 
   @doc ~S"""
@@ -40,8 +45,8 @@ defmodule CliSpinners.Spinner do
 
     config = [
       interval: format[:interval],
-      render_frame: fn (count) -> render_frame(format, count) end,
-      render_done:  fn -> render_done(format[:done]) end,
+      render_frame: fn count -> render_frame(format, count) end,
+      render_done: fn -> render_done(format[:done]) end
     ]
 
     CliSpinners.Animation.begin_animation(config)
@@ -55,27 +60,27 @@ defmodule CliSpinners.Spinner do
     index = rem(count, length(frames))
     frame = Enum.at(frames, index)
 
-    IO.write [
+    IO.write([
       Utils.ansi_prefix(),
       Utils.color(frame, format[:spinner_color]),
       " ",
-      format[:text],
-    ]
+      format[:text]
+    ])
   end
 
   defp render_done(:remove), do: IO.write(Utils.ansi_prefix())
+
   defp render_done(text) do
-    IO.write [
+    IO.write([
       Utils.ansi_prefix(),
       text,
-      "\n",
-    ]
+      "\n"
+    ])
   end
 
   defp get_frames(list) when is_list(list), do: list
+
   defp get_frames(theme) when is_atom(theme) do
     _frames = Kernel.apply(CliSpinners.Spinners, theme, [])
   end
-
 end
-

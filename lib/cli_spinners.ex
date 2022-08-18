@@ -1,5 +1,6 @@
 defmodule CliSpinners do
   alias CliSpinners.Spinner
+
   @moduledoc """
   Documentation for CliSpinners.
   CliSpinners are nothing more like a loading animation in the command line
@@ -164,9 +165,12 @@ defmodule CliSpinners do
     case config do
       :default ->
         CliSpinners.Spinner.render(function)
+
       conf when is_list(conf) ->
         CliSpinners.Spinner.render(config, function)
-      _ -> IO.puts "Miss Matching the Configurations"
+
+      _ ->
+        IO.puts("Miss Matching the Configurations")
     end
   end
 
@@ -179,7 +183,6 @@ defmodule CliSpinners do
     CliSpinners.Spinners.__info__(:functions)
     |> Enum.each(fn {fun_name, _} -> spin(fun_name, 2000) end)
   end
-
 
   defp fun(time \\ 3000) do
     fn -> :timer.sleep(time) end
